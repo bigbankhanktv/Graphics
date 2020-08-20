@@ -44,10 +44,10 @@ editor_versions:
       revision: b57922a1f280546ec2b0132c0d14719ef10ad7c8
       version: ''
     ios:
-      revision: 189b4219d94f13571f417fc41f6995e547e5e907
+      revision: b57922a1f280546ec2b0132c0d14719ef10ad7c8
       version: ''
     linux:
-      revision: 189b4219d94f13571f417fc41f6995e547e5e907
+      revision: b57922a1f280546ec2b0132c0d14719ef10ad7c8
       version: ''
     macos:
       revision: b57922a1f280546ec2b0132c0d14719ef10ad7c8
