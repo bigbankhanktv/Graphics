@@ -9,7 +9,7 @@ def _cmd_base(project_folder, platform, editor):
         f'ssh -i ~/.ssh/id_rsa_macmini -o "StrictHostKeyChecking=no" bokken@$BOKKEN_DEVICE_IP "bash -lc \'pip3 install --user unity-downloader-cli --index-url {UNITY_DOWNLOADER_CLI_URL} --upgrade\'"',
         f'scp -i ~/.ssh/id_rsa_macmini -o "StrictHostKeyChecking=no" -r $YAMATO_SOURCE_DIR bokken@$BOKKEN_DEVICE_IP:~/{REPOSITORY_NAME}',
         f'scp -i ~/.ssh/id_rsa_macmini -o "StrictHostKeyChecking=no" ~/.ssh/id_rsa_macmini bokken@$BOKKEN_DEVICE_IP:~/.ssh/id_rsa_macmini',
-        f'ssh -i ~/.ssh/id_rsa_macmini -o "StrictHostKeyChecking=no" bokken@$BOKKEN_DEVICE_IP \'/Users/bokken/Library/Python/3.7/bin/unity-downloader-cli { get_unity_downloader_cli_cmd(editor, platform["os"]) } {"".join([f"-c {c} " for c in platform["components"]])} --wait --published-only\''
+        f'ssh -i ~/.ssh/id_rsa_macmini -o "StrictHostKeyChecking=no" bokken@$BOKKEN_DEVICE_IP \'/Users/bokken/Library/Python/3.7/bin/unity-downloader-cli { get_unity_downloader_cli_cmd(editor, platform["os"], git_root=True) } {"".join([f"-c {c} " for c in platform["components"]])} --wait --published-only\''
     ]
 
 
@@ -38,7 +38,7 @@ def cmd_standalone(project_folder, platform, api, test_platform_args, editor):
     return base
 
 def cmd_standalone_build(project_folder, platform, api, test_platform_args, editor):
-    raise Exception('osx_metal: standalone_split set to true but build commands not specified')
+    raise NotImplementedError('osx_metal: standalone_split set to true but build commands not specified')
 
 
 def _get_extra_utr_arg(project_folder):
